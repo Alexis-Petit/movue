@@ -9,8 +9,7 @@ export const movieInTheaters = async () => {
   try {
     const url = `${VUE_APP_IN_THEATERS}${API_KEY}`
     const response = await axios.get(url)
-    console.log(response)
-    results = response.data.results
+    results = response.data.items
   } catch (err) {
     if (err.response) {
       // client received an error response (5xx, 4xx)
@@ -25,13 +24,13 @@ export const movieInTheaters = async () => {
   return results;
 };
 
-export const movieComingSoon = async (): Promise<string> => {
+export const movieComingSoon = async () => {
   let results;
   try {
     const url = `${VUE_APP_COMING_SOON}${API_KEY}`
     const response = await axios.get(url)
     console.log(response)
-    results = response.data.results
+    results = response.data.items
   } catch (err) {
     if (err.response) {
       // client received an error response (5xx, 4xx)
