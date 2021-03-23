@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
+import CardFilmDetails from "../views/CardFilmDetail.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,7 +16,13 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
+  },
+  {
+   path: '/film-detail/:id',
+   name: 'CardFilmDetails',
+   props: true,
+   component: CardFilmDetails
+ },
 ];
 
 const router = createRouter({
