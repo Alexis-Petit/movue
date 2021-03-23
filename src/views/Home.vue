@@ -9,7 +9,7 @@
           v-for="cardFilm in cardFilmsInTheater"
           :key="cardFilm.id"
           class="column is-half-tablet is-one-fifth-desktop is-one-fifth-widescreen m-3"
-          :CardFilm="cardFilm"
+          :cardFilm="cardFilm"
           @click="showCardFilmDetails(cardFilm)"
         />
       </div>
@@ -23,7 +23,7 @@
           v-for="cardFilm in cardFilmsComingSoon"
           :key="cardFilm.id"
           class="column is-half-tablet is-one-fifth-desktop is-one-fifth-widescreen m-3"
-          :CardFilm="cardFilm"
+          :cardFilm="cardFilm"
         />
       </div>
     </section>
@@ -59,8 +59,7 @@ export default defineComponent({
       //     fullTitle: "Nobody (2021)",
       //     year: "2021",
       //     releaseState: "March 26",
-      //     image:
-      //       "https://imdb-api.com/images/original/MV5BMjM5YTRlZmUtZGVmYi00ZjE2LWIyNzAtOWVhMDk1MDdkYzhjXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_Ratio0.6699_AL_.jpg",
+      //     image: "https://m.media-amazon.com/images/M/MV5BMjM5YTRlZmUtZGVmYi00ZjE2LWIyNzAtOWVhMDk1MDdkYzhjXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_UX128_CR0,4,128,176_AL_.jpg",
       //     runtimeMins: "92",
       //     runtimeStr: "1h 32mins",
       //     plot:
@@ -272,7 +271,7 @@ export default defineComponent({
       //   }
       // ];
       this.cardFilmsInTheater = await movieInTheaters();
-      this.cardFilmsComingSoon = await movieComingSoon();
+      // this.cardFilmsComingSoon = await movieComingSoon();
     },
     showCardFilmDetails(cardFilm: { id: any; }) {
       this.$router.push({

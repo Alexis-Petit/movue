@@ -20,6 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   {
    path: '/film-detail/:id',
    name: 'CardFilmDetails',
+   props: true,
    component: CardFilmDetails
  },
 ];

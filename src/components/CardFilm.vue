@@ -1,16 +1,16 @@
 <template>
   <div class="card">
     <div class="card-image">
-      <figure class="image is-2by3 ">
-        <img :src="CardFilm.image" alt="Placeholder image" />
+      <figure class="image">
+        <img :src="imgSrc" alt="Placeholder image" />
       </figure>
     </div>
     <div class="card-content ">
       <div class="media ">
         <div class="media-content">
-          <p class="title is-4">{{ CardFilm.title }}</p>
-          <p class="subtitle is-6">Réalisateur : {{ CardFilm.directors}}</p>
-          <p class="subtitle is-6">Acteurs : {{ CardFilm.stars}}</p>
+          <p class="title is-4">{{ cardFilm.title }}</p>
+          <p class="subtitle is-6">Réalisateur : {{ cardFilm.directors }}</p>
+          <p class="subtitle is-6">Acteurs : {{ cardFilm.stars }}</p>
         </div>
       </div>
     </div>
@@ -22,9 +22,19 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "CardFilm",
-  props: {
-    CardFilm: {}
-  }
+  props: ["cardFilm"],
+  data() {
+    return {
+      imgSrc: this.cardFilm.image,
+    };
+  },
+  mounted() {
+    // this.imgSrc = String(this.cardFilm.image).slice(0, this.cardFilm.image.length - 3);
+    this.imgSrc = String(this.cardFilm.image).slice(
+      0,
+      this.cardFilm.image.length - 4
+    );
+  },
 });
 </script>
 
