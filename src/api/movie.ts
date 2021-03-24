@@ -6,9 +6,12 @@ const VUE_APP_COMING_SOON = process.env.VUE_APP_COMING_SOON;
 const VUE_APP_YOUTUBETRAILER = process.env.VUE_APP_YOUTUBETRAILER;
 const VUE_APP_FILMID = process.env.VUE_APP_FILMID;
 const VUE_APP_FILMSEARCH = process.env.VUE_APP_FILMSEARCH;
+<<<<<<< HEAD
 const VUE_APP_TOP250 = process.env.VUE_APP_TOP250;
 const VUE_APP_MOST_POPULAR_MOVIES = process.env.VUE_APP_MOST_POPULAR_MOVIES;
 const VUE_APP_MOST_POPULAR_SERIES = process.env.VUE_APP_MOST_POPULAR_SERIES;
+=======
+>>>>>>> create search request
 
 export const movieInTheaters = async () => {
   let results;
@@ -111,6 +114,7 @@ export const search = async (query: string) => {
   }
   return results;
 };
+<<<<<<< HEAD
 
 export const top250 = async () => {
   let results;
@@ -174,3 +178,5 @@ export const mostPopularSeries = async () => {
   }
   return results;
 };
+=======
+>>>>>>> create search request
