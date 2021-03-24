@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div v-if="!isLoading" class="pageloader">
+    <span class="title">Pageloader</span>
+  </div>
+  <div v-else class="container">
     <div class="card has-text-left">
       <div class="columns m-2">
         <div class="column is-two-fifths">
@@ -48,22 +51,23 @@
                     </ul>
                   </nav>
                 </article>
+                <!-- {{ cardFilmDetails.ratings["imDb"] }}
                 <article class="media">
                   <h5 class="media-left">Notation</h5>
                   <div class="content">
-                    <!-- imDb :
+                    imDb :
                     <span class="tag is-warning">{{
-                      cardFilmDetails.ratings.imDb
+                      cardFilmDetails.ratings["imDb"]
                     }}</span>
                     rottenTomatoes :
                     <span class="tag is-warning">{{
                       cardFilmDetails.ratings.rottenTomatoes
-                    }}</span> -->
+                    }}</span>
                   </div>
                 </article>
                 <article class="media">
                   <a :href="url.videoUrl">Bande annonce</a>
-                </article>
+                </article> -->
               </div>
             </div>
           </div>
@@ -84,7 +88,9 @@ export default defineComponent({
   },
   data() {
     return {
-      cardFilmDetails: {},
+      isLoading: true,
+      // eslint-disable-next-line @typescript-eslint/no-array-constructor
+      cardFilmDetails: new Array(),
       url: "",
       // eslint-disable-next-line @typescript-eslint/no-array-constructor
       response: new Array(),
@@ -98,10 +104,11 @@ export default defineComponent({
   },
   methods: {
     async trailer() {
-      // this.url = await youtubeTrailerLink(String(this.id));
+      this.url = await youtubeTrailerLink(String(this.id));
     },
     async init() {
       // this.cardFilmDetails = await movieWithId(String(this.id));
+      // console.log(await movieWithId(String(this.id)));
       this.response = [
         {
           id: "tt0411008",
