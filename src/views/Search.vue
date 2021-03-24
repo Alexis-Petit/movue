@@ -6,19 +6,20 @@
         class="field has-addons column is-two-thirds-tablet is-three-fiths-desktop is-one-quarter-fullhd"
       >
         <div class="control is-expanded">
-          <input class="input" type="text" placeholder="Find a repository" />
+          <input v-model="query" class="input" type="text" placeholder="Find a movie" />
         </div>
-        <div class="control">
-          <a class="button is-info">
+        <div @click="onSearchClick()" class="control">
+          <button class="button is-info" v-bind:class="{'is-loading': isLoading}" :disabled="queryIsEmpty || isLoading">
             Search
-          </a>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- results -->
-  <div class="columns is-multiline is-centered">
+
+  <div v-if="results.length>0" class="columns is-multiline is-centered">
     <CardSearchResult
       v-for="cardResult in results"
       :key="cardResult.id"
@@ -40,15 +41,22 @@ export default defineComponent({
   data() {
     return {
       results: [],
+      isLoading: false,
+      query: ""
     }
   },
-  mounted() {
-    this.init()
+  computed: {
+    queryIsEmpty: function():boolean {
+      return this.query.length==0
+    }
 
   },
   methods: {
-    async init() {
-      this.results = await search("home alone");
+    async onSearchClick() {
+      this.isLoading = true
+      console.log(this.query)
+      this.results = await search(this.query)
+      this.isLoading = false
     },
     showCardFilmDetails(cardResult: { id: any; }) {
       this.$router.push({
