@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 const API_KEY = process.env.VUE_APP_NASA_API_KEY;
 const VUE_APP_IN_THEATERS = process.env.VUE_APP_IN_THEATERS;
