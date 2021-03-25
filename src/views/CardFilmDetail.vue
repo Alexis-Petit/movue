@@ -51,7 +51,6 @@
                     </ul>
                   </nav>
                 </article>
-                {{ cardFilmDetails.ratings?.imDb }}
                 <article class="media">
                   <h5 class="media-left">Notation</h5>
                   <div class="content">
