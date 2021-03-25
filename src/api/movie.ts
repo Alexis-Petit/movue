@@ -114,7 +114,6 @@ export const search = async (query: string) => {
   }
   return results;
 };
-<<<<<<< HEAD
 
 export const top250 = async () => {
   let results;
@@ -178,5 +177,3 @@ export const mostPopularSeries = async () => {
   }
   return results;
 };
-=======
->>>>>>> create search request
