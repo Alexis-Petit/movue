@@ -66,7 +66,19 @@
                   </div>
                 </article>
                 <article class="media">
-                  <a :href="url.videoUrl">Bande annonce</a>
+                  <div class="media-left">
+                    <a :href="url.videoUrl">
+                      <img :src="ytImage" class="logo" alt="trailer" />
+                    </a>
+                  </div>
+                  <div class="media-right">
+                    <img
+                      alt="share"
+                      :src="shareImage"
+                      class="logo"
+                      @click="shareMovie"
+                    />
+                  </div>
                 </article>
               </div>
             </div>
@@ -80,6 +92,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { movieWithId, youtubeTrailerLink } from "../api/movie";
+import { Plugins } from "@capacitor/core";
+const { Share } = Plugins;
 
 export default defineComponent({
   name: "CardFilmDetail",
@@ -89,18 +103,15 @@ export default defineComponent({
   data() {
     return {
       isLoading: true,
-      // eslint-disable-next-line @typescript-eslint/no-array-constructor
-      cardFilmDetails: new Array(),
+      ytImage: "./assets/youtube.png",
+      shareImage: "./assets/share.png",
+      cardFilmDetails: [],
       url: "",
-      // eslint-disable-next-line @typescript-eslint/no-array-constructor
-      response: new Array(),
     };
   },
   mounted() {
     this.init();
-    this.trailer();
-    // Pour le mock
-    this.cardFilmDetails = this.response[0];
+    // this.trailer();
   },
   methods: {
     async trailer() {
@@ -108,8 +119,15 @@ export default defineComponent({
     },
     async init() {
       this.cardFilmDetails = await movieWithId(String(this.id));
-      console.log(await movieWithId(String(this.id)));
-      
+    },
+    // Capacitor method call on click button to share the current film
+    async shareMovie() {
+      await Share.share({
+        title: "Regarde ça !",
+        text: "Ce film a l'air vraiment hyper sympas !",
+        url: window.location.pathname,
+        dialogTitle: "my men",
+      });
     },
   },
 });
@@ -118,5 +136,10 @@ export default defineComponent({
 <style scoped lang="scss">
 .sizeImg {
   max-width: 50vh;
+}
+
+.logo {
+  max-width: 4vh;
+  cursor: pointer;
 }
 </style>
