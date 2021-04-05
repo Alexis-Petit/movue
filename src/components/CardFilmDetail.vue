@@ -28,9 +28,15 @@
                 <p class="subtitle is-6">
                   Durée : {{ cardFilmDetails.runtimeStr }}
                 </p>
-                <span v-if="cardFilmDetails.genres" class="tag is-info">{{
-                  cardFilmDetails.genres
-                }}</span>
+                <div class="tags">
+                  <span
+                    v-for="genre in cardFilmDetails?.genres?.split(',')"
+                    :key="genre"
+                    class="tag is-info"
+                  >
+                    {{ genre }}
+                  </span>
+                </div>
                 <article class="media mt-2">
                   <h5 class="media-left">Résumé :</h5>
                   <p class="content">{{ cardFilmDetails.plotLocal }}</p>
