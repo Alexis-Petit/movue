@@ -75,7 +75,6 @@ export const movieWithId = async (idVideo: string) => {
   try {
     const url = `${VUE_APP_FILMID}${API_KEY}/${idVideo}/Ratings`;
     const response = await axios.get(url);
-    console.log(response);
     results = response.data;
   } catch (err) {
     if (err.response) {
@@ -96,7 +95,6 @@ export const search = async (query: string) => {
   try {
     const url = `${VUE_APP_FILMSEARCH}${API_KEY}/${query}`;
     const response = await axios.get(url);
-    console.log(response);
     results = response.data.results;
   } catch (err) {
     if (err.response) {
@@ -118,7 +116,6 @@ export const top250 = async () => {
     const url = `${VUE_APP_TOP250}${API_KEY}`;
     const response = await axios.get(url);
     results = response.data.items.slice(0,10);
-    console.log(results);
   } catch (err) {
     if (err.response) {
       // client received an error response (5xx, 4xx)
@@ -139,7 +136,6 @@ export const mostPopularMovies = async () => {
     const url = `${VUE_APP_MOST_POPULAR_MOVIES}${API_KEY}`;
     const response = await axios.get(url);
     results = response.data.items.slice(0,10);
-    console.log(results) 
   } catch (err) {
     if (err.response) {
       // client received an error response (5xx, 4xx)
@@ -160,7 +156,6 @@ export const mostPopularSeries = async () => {
     const url = `${VUE_APP_MOST_POPULAR_SERIES}${API_KEY}`;
     const response = await axios.get(url);
     results = response.data.items.slice(0,10);
-    console.log(results) 
   } catch (err) {
     if (err.response) {
       // client received an error response (5xx, 4xx)
