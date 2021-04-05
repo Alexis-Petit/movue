@@ -32,7 +32,7 @@
                   <span
                     v-for="genre in cardFilmDetails?.genres?.split(',')"
                     :key="genre"
-                    class="tag is-info"
+                    class="tag is-primary"
                   >
                     {{ genre }}
                   </span>
@@ -61,11 +61,11 @@
                   <h5 class="media-left">Notation</h5>
                   <div class="content">
                     imDb :
-                    <span class="tag is-warning">{{
+                    <span class="tag is-info">{{
                       cardFilmDetails.ratings?.imDb / 10 || "N/A"
                     }}</span>
                     rottenTomatoes :
-                    <span class="tag is-warning">{{
+                    <span class="tag is-info">{{
                       cardFilmDetails.ratings?.rottenTomatoes / 100 || "N/A"
                     }}</span>
                   </div>
