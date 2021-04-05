@@ -51,17 +51,16 @@
                     </ul>
                   </nav>
                 </article>
-                {{ cardFilmDetails.ratings?.imDb }}
                 <article class="media">
                   <h5 class="media-left">Notation</h5>
                   <div class="content">
                     imDb :
                     <span class="tag is-warning">{{
-                      cardFilmDetails.ratings?.imDb || "N/A"
+                      cardFilmDetails.ratings?.imDb / 10 || "N/A"
                     }}</span>
                     rottenTomatoes :
                     <span class="tag is-warning">{{
-                      cardFilmDetails.ratings?.rottenTomatoes || "N/A"
+                      cardFilmDetails.ratings?.rottenTomatoes / 100 || "N/A"
                     }}</span>
                   </div>
                 </article>
@@ -115,7 +114,7 @@ export default defineComponent({
   },
   methods: {
     async trailer() {
-      this.url = await youtubeTrailerLink(String(this.id));
+      // this.url = await youtubeTrailerLink(String(this.id));
     },
     async init() {
       this.cardFilmDetails = await movieWithId(String(this.id));
@@ -124,9 +123,9 @@ export default defineComponent({
     async shareMovie() {
       await Share.share({
         title: "Regarde ça !",
-        text: "Ce film a l'air vraiment hyper sympas !",
-        url: window.location.pathname,
-        dialogTitle: "my men",
+        text: "Ce film a l'air vraiment hyper sympa !",
+        url: window.location.href,
+        dialogTitle: "Envoyer ce film sur :",
       });
     },
   },

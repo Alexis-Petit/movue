@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Search from "../views/Search.vue";
 import Top from "../views/Top.vue";
-import CardFilmDetails from "../views/CardFilmDetail.vue";
+import CardFilmDetails from "../components/CardFilmDetail.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {

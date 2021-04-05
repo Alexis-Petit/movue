@@ -42,8 +42,7 @@ export default defineComponent({
   },
   data() {
     return {
-      // eslint-disable-next-line @typescript-eslint/no-array-constructor
-      cardFilmsInTheater: new Array(),
+      cardFilmsInTheater: [],
       cardFilmsComingSoon: [],
     };
   },
@@ -55,7 +54,7 @@ export default defineComponent({
       this.cardFilmsInTheater = await movieInTheaters();
       // this.cardFilmsComingSoon = await movieComingSoon();
     },
-    showCardFilmDetails(cardFilm: { id: any; }) {
+    showCardFilmDetails(cardFilm: { id: number }) {
       this.$router.push({
         name: "CardFilmDetails",
         params: { id: cardFilm.id },
