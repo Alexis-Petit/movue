@@ -6,10 +6,10 @@
         class="field has-addons column is-two-thirds-tablet is-three-fiths-desktop is-one-quarter-fullhd"
       >
         <div class="control is-expanded">
-          <input v-model="query" class="input" type="text" placeholder="Find a movie" />
+          <input @keyup.enter="onSearchClick()" v-model="query" class="input" type="text" placeholder="Find a movie" />
         </div>
         <div @click="onSearchClick()" class="control">
-          <button class="button is-info" v-bind:class="{'is-loading': isLoading}" :disabled="queryIsEmpty || isLoading">
+          <button class="button is-danger" v-bind:class="{'is-loading': isLoading}" :disabled="queryIsEmpty || isLoading">
             Search
           </button>
         </div>
