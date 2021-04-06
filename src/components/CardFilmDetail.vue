@@ -23,20 +23,20 @@
                 <p class="title is-4">{{ cardFilmDetails.fullTitle }}</p>
                 <p>{{ cardFilmDetails.releaseState }}</p>
                 <p class="subtitle is-6">
-                  Réalisateur : {{ cardFilmDetails.directors }}
+                  Director : {{ cardFilmDetails.directors }}
                 </p>
                 <p class="subtitle is-6">
-                  Durée : {{ cardFilmDetails.runtimeStr }}
+                  Duration : {{ cardFilmDetails.runtimeStr }}
                 </p>
                 <span v-if="cardFilmDetails.genres" class="tag is-info">{{
                   cardFilmDetails.genres
                 }}</span>
                 <article class="media mt-2">
-                  <h5 class="media-left">Résumé :</h5>
-                  <p class="content">{{ cardFilmDetails.plotLocal }}</p>
+                  <h5 class="media-left">Abstract :</h5>
+                  <p class="content">{{ cardFilmDetails.plot }}</p>
                 </article>
                 <article class="media">
-                  <h5 class="media-left">Acteurs :</h5>
+                  <h5 class="media-left">Actors :</h5>
                   <nav
                     class="breadcrumb has-bullet-separator"
                     aria-label="breadcrumbs"
@@ -123,10 +123,10 @@ export default defineComponent({
     // Capacitor method call on click button to share the current film
     async shareMovie() {
       await Share.share({
-        title: "Regarde ça !",
-        text: "Ce film a l'air vraiment hyper sympa !",
+        title: "Check that !",
+        text: "This movie looks really nice !",
         url: window.location.href,
-        dialogTitle: "Envoyer ce film sur :",
+        dialogTitle: "Send this movie on :",
       });
     },
   },

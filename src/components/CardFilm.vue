@@ -9,8 +9,8 @@
       <div class="media ">
         <div class="media-content">
           <p class="title is-4">{{ cardFilm.title }}</p>
-          <p class="subtitle is-6">Réalisateur : {{ cardFilm.directors }}</p>
-          <p class="subtitle is-6">Acteurs : {{ cardFilm.stars }}</p>
+          <p class="subtitle is-6">Director : {{ cardFilm.directors }}</p>
+          <p class="subtitle is-6">Actors : {{ cardFilm.stars }}</p>
         </div>
       </div>
     </div>

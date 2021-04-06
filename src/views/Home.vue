@@ -2,7 +2,7 @@
   <div class="container is-fluid">
     <section class="section">
       <div class="content level">
-        <h1 class="level-left">Actuellement au cinéma :</h1>
+        <h1 class="level-left">Currently in theaters :</h1>
       </div>
       <div class="columns is-multiline is-centered">
         <CardFilm
@@ -16,7 +16,7 @@
     </section>
     <section class="section">
       <div class="content level">
-        <h1 class="level-left">Prochainement :</h1>
+        <h1 class="level-left">Coming soon :</h1>
       </div>
       <div class="columns is-multiline is-centered">
         <CardFilm
