@@ -28,19 +28,22 @@
       @click="showCardFilmDetails(cardResult)"
     />
   </div>
+  <NoResult v-else-if="noResults" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { search } from "@/api/movie";
 import CardSearchResult from "@/components/CardSearchResult.vue";
+import NoResult from "@/components/SearchNoResult.vue";
 
 export default defineComponent({
   name: "Search",
-  components: {CardSearchResult},
+  components: {CardSearchResult, NoResult},
   data() {
     return {
       results: [],
+      noResults: false,
       isLoading: false,
       query: ""
     }
@@ -49,13 +52,12 @@ export default defineComponent({
     queryIsEmpty: function():boolean {
       return this.query.length==0
     }
-
   },
   methods: {
     async onSearchClick() {
       this.isLoading = true
-      console.log(this.query)
       this.results = await search(this.query)
+      this.noResults = ( this.results.length === 0 )
       this.isLoading = false
     },
     showCardFilmDetails(cardResult: { id: any; }) {
