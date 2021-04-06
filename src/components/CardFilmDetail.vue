@@ -1,8 +1,5 @@
 <template>
-  <div v-if="!isLoading" class="pageloader">
-    <span class="title">Pageloader</span>
-  </div>
-  <div v-else class="container">
+  <div class="container">
     <div class="card has-text-left">
       <div class="columns m-2">
         <div class="column is-two-fifths">
