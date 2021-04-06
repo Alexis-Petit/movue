@@ -28,15 +28,9 @@
                 <p class="subtitle is-6">
                   Durée : {{ cardFilmDetails.runtimeStr }}
                 </p>
-                <div class="tags">
-                  <span
-                    v-for="genre in cardFilmDetails?.genres?.split(',')"
-                    :key="genre"
-                    class="tag is-primary"
-                  >
-                    {{ genre }}
-                  </span>
-                </div>
+                <span v-if="cardFilmDetails.genres" class="tag is-info">{{
+                  cardFilmDetails.genres
+                }}</span>
                 <article class="media mt-2">
                   <h5 class="media-left">Résumé :</h5>
                   <p class="content">{{ cardFilmDetails.plotLocal }}</p>
@@ -61,13 +55,14 @@
                   <h5 class="media-left">Notation</h5>
                   <div class="content">
                     imDb :
-                    <span class="tag is-info">{{
-                      cardFilmDetails.ratings?.imDb / 10 || "N/A"
-                    }}</span>
+                    <span class="tag is-warning"
+                      >{{ cardFilmDetails.ratings?.imDb || "N/A" }} / 10
+                    </span>
                     rottenTomatoes :
-                    <span class="tag is-info">{{
-                      cardFilmDetails.ratings?.rottenTomatoes / 100 || "N/A"
-                    }}</span>
+                    <span class="tag is-warning"
+                      >{{ cardFilmDetails.ratings?.rottenTomatoes || "N/A" }} /
+                      100
+                    </span>
                   </div>
                 </article>
                 <article class="media">
