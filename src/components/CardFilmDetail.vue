@@ -61,13 +61,14 @@
                   <h5 class="media-left">Notation</h5>
                   <div class="content">
                     imDb :
-                    <span class="tag is-info">{{
-                      cardFilmDetails.ratings?.imDb / 10 || "N/A"
-                    }}</span>
+                    <span class="tag is-info"
+                      >{{ cardFilmDetails.ratings?.imDb || "N/A" }} / 10
+                    </span>
                     rottenTomatoes :
-                    <span class="tag is-info">{{
-                      cardFilmDetails.ratings?.rottenTomatoes / 100 || "N/A"
-                    }}</span>
+                    <span class="tag is-info"
+                      >{{ cardFilmDetails.ratings?.rottenTomatoes || "N/A" }} /
+                      100
+                    </span>
                   </div>
                 </article>
                 <article class="media">
