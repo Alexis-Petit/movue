@@ -27,7 +27,6 @@ export default defineComponent({
     };
   },
   mounted() {
-    // this.imgSrc = String(this.cardFilm.image).slice(0, this.cardFilm.image.length - 3);
     this.imgSrc = String(this.cardResult.image).slice(
       0,
       this.cardResult.image.length - 4

@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
    path: '/film-detail/:id',
-   name: 'CardFilmDetails',
+   name: 'FilmDetail',
    props: true,
    component: CardFilmDetails
  },

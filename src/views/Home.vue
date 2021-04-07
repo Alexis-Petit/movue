@@ -24,6 +24,7 @@
           :key="cardFilm.id"
           class="column is-half-tablet is-one-fifth-desktop is-one-fifth-widescreen m-3"
           :cardFilm="cardFilm"
+          @click="showCardFilmDetails(cardFilm)"
         />
       </div>
     </section>
@@ -32,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import CardFilm from "@/components/CardFilm.vue"; // @ is an alias to /src
+import CardFilm from "@/components/CardFilm.vue";
 import { movieInTheaters, movieComingSoon } from "../api/movie";
 
 export default defineComponent({
@@ -50,13 +51,15 @@ export default defineComponent({
     this.init();
   },
   methods: {
+    // API calls
     async init() {
       this.cardFilmsInTheater = await movieInTheaters();
-      // this.cardFilmsComingSoon = await movieComingSoon();
+      this.cardFilmsComingSoon = await movieComingSoon();
     },
+    // On click route to the films selected
     showCardFilmDetails(cardFilm: { id: number }) {
       this.$router.push({
-        name: "CardFilmDetails",
+        name: "FilmDetail",
         params: { id: cardFilm.id },
       });
     },

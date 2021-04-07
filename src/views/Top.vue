@@ -66,14 +66,15 @@ export default defineComponent({
     this.init();
   },
   methods: {
+    // API calls
     async init() {
-      this.topMovies = await top250()
+      this.topMovies = await top250();
       this.trendingMovies = await mostPopularMovies();
       this.trendingSeries = await mostPopularSeries();
     },
     showDetail(cardFilm: { id: any; }) {
       this.$router.push({
-        name: "CardFilmDetails",
+        name: "FilmDetail",
         params: { id: cardFilm.id },
       });
     },

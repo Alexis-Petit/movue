@@ -29,7 +29,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    // this.imgSrc = String(this.cardFilm.image).slice(0, this.cardFilm.image.length - 3);
+    // Correction of the image url, need to be troncate to get image in higher quality
     this.imgSrc = String(this.cardFilm.image).slice(
       0,
       this.cardFilm.image.length - 4

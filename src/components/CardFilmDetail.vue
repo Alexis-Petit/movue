@@ -6,7 +6,7 @@
           <div class="card-image">
             <figure class="image">
               <img
-                class="sizeImg"
+                class="sizeImg is-centered"
                 :src="cardFilmDetails.image"
                 alt="Placeholder image"
               />
@@ -114,14 +114,12 @@ export default defineComponent({
   },
   mounted() {
     this.init();
-    // this.trailer();
   },
   methods: {
-    async trailer() {
-      // this.url = await youtubeTrailerLink(String(this.id));
-    },
+    // API calls
     async init() {
       this.cardFilmDetails = await movieWithId(String(this.id));
+      this.url = await youtubeTrailerLink(String(this.id));
     },
     // Capacitor method call on click button to share the current film
     async shareMovie() {

@@ -18,7 +18,7 @@ export const movieInTheaters = async () => {
     results = response.data.items;
   } catch (err) {
     if (err.response) {
-      // client received an error response (5xx, 4xx)
+      // client received an error response 
       console.log("Server Error:", err);
     } else if (err.request) {
       // client never received a response, or request never left
@@ -38,7 +38,7 @@ export const movieComingSoon = async () => {
     results = response.data.items;
   } catch (err) {
     if (err.response) {
-      // client received an error response (5xx, 4xx)
+      // client received an error response 
       console.log("Server Error:", err);
     } else if (err.request) {
       // client never received a response, or request never left
@@ -58,7 +58,7 @@ export const youtubeTrailerLink = async (idVideo: string) => {
     results = response.data;
   } catch (err) {
     if (err.response) {
-      // client received an error response (5xx, 4xx)
+      // client received an error response 
       console.log("Server Error:", err);
     } else if (err.request) {
       // client never received a response, or request never left
@@ -78,7 +78,7 @@ export const movieWithId = async (idVideo: string) => {
     results = response.data;
   } catch (err) {
     if (err.response) {
-      // client received an error response (5xx, 4xx)
+      // client received an error response 
       console.log("Server Error:", err);
     } else if (err.request) {
       // client never received a response, or request never left
@@ -98,7 +98,7 @@ export const search = async (query: string) => {
     results = response.data.results;
   } catch (err) {
     if (err.response) {
-      // client received an error response (5xx, 4xx)
+      // client received an error response 
       console.log("Server Error:", err);
     } else if (err.request) {
       // client never received a response, or request never left
@@ -118,7 +118,7 @@ export const top250 = async () => {
     results = response.data.items.slice(0,10);
   } catch (err) {
     if (err.response) {
-      // client received an error response (5xx, 4xx)
+      // client received an error response
       console.log("Server Error:", err);
     } else if (err.request) {
       // client never received a response, or request never left
