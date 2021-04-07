@@ -27,6 +27,7 @@ export default defineComponent({
     };
   },
   mounted() {
+    // Correction of the image url, need to be troncate to get image in higher quality
     this.imgSrc = String(this.cardResult.image).slice(
       0,
       this.cardResult.image.length - 4
